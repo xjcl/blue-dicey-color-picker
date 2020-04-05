@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="description" content="For Kinzsters172">
+<title>Blue? Dicey</title>
+<script type="text/javascript">
+
+function drawBlueDicey(color) {
+    console.log("Drawing Blue Dicey in " + color + "! 😁");
+
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = color;
+
+    ctx.beginPath();
+    ctx.moveTo( 590,  40);
+    ctx.lineTo(1228,  40);
+    ctx.lineTo(1398, 187);
+    ctx.lineTo(1398, 868);
+    ctx.lineTo( 715, 868);
+    ctx.lineTo( 590, 720);
+    ctx.closePath();
+    ctx.fill();
+
+    var image = document.getElementById('bluedicey');
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+}
+
+function drawBlueDiceyRandomColor() {
+    var colorPicker = document.getElementById('colorpicker');
+    colorPicker.value = '#'+Math.random().toString(16).substr(-6);
+    drawBlueDicey(colorPicker.value);
+}
+
+function loadBody() {
+    var colorPicker = document.getElementById('colorpicker');
+    drawBlueDicey(colorPicker.value);
+    colorPicker.addEventListener("change", ev => {drawBlueDicey(ev.target.value);}, false);
+}
+
+</script>
+<style type="text/css">
+    canvas { border: 1px solid black; }
+    input[type="color"] { width: 1922px; height: 50px; }
+</style>
+</head>
+
+<body onload="loadBody();" onkeypress="drawBlueDiceyRandomColor();">
+<input id="colorpicker" type="color" value="#3333fe" /><br/>
+<canvas id="canvas" width="1920" height="1080" onclick="drawBlueDiceyRandomColor();"></canvas>
+<div style="display:none;">
+    <img id="bluedicey" src="blue-dicey-transparent.png"/>
+</div>
+</body>
+
+</html>
