@@ -12,3 +12,4 @@ Key presses or clicking the canvas generate a random color. Right-click to save/
 Requested by Kinzsters172.
 
 ![im1](https://xjcl.github.io/blue-dicey-color-picker/blue-dicey-transparent.png)
+
