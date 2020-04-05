@@ -4,10 +4,12 @@
 <meta charset="utf-8"/>
 <meta name="description" content="For Kinzsters172">
 <title>Blue? Dicey</title>
+<script src="https://chir.ag/projects/ntc/ntc.js"></script>
 <script type="text/javascript">
 
 function drawBlueDicey(color) {
     console.log("Drawing Blue Dicey in " + color + "! 😁");
+    document.getElementById('title').innerHTML = ntc.name(color)[1] + " Dicey!";
 
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
@@ -43,16 +45,21 @@ function loadBody() {
 
 </script>
 <style type="text/css">
+    html { zoom: 50%; }
+    h1 { font-size: 60px; }
     canvas { border: 1px solid black; }
-    input[type="color"] { width: 1922px; height: 50px; }
+    input[type="color"] { width: 1922px; height: 80px; }
 </style>
 </head>
 
 <body onload="loadBody();" onkeypress="drawBlueDiceyRandomColor();">
+<div align="center" width="1920">
+<h1 id="title">Blue Dicey!</h1>
 <input id="colorpicker" type="color" value="#3333fe" /><br/>
 <canvas id="canvas" width="1920" height="1080" onclick="drawBlueDiceyRandomColor();"></canvas>
 <div style="display:none;">
     <img id="bluedicey" src="blue-dicey-transparent.png"/>
+</div>
 </div>
 </body>
 
