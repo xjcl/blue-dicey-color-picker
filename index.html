@@ -14,19 +14,22 @@ function drawBlueDicey(color) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerWidth * 9/16;
+    console.log("Canvas " + canvas.width + " " + canvas.height);
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = color;
 
     ctx.beginPath();
-    ctx.moveTo( 590,  40);
-    ctx.lineTo(1228,  40);
-    ctx.lineTo(1398, 187);
-    ctx.lineTo(1398, 868);
-    ctx.lineTo( 715, 868);
-    ctx.lineTo( 590, 720);
+    ctx.moveTo( 590 * canvas.width / 1920,  40 * canvas.height / 1080);
+    ctx.lineTo(1228 * canvas.width / 1920,  40 * canvas.height / 1080);
+    ctx.lineTo(1398 * canvas.width / 1920, 187 * canvas.height / 1080);
+    ctx.lineTo(1398 * canvas.width / 1920, 868 * canvas.height / 1080);
+    ctx.lineTo( 715 * canvas.width / 1920, 868 * canvas.height / 1080);
+    ctx.lineTo( 590 * canvas.width / 1920, 720 * canvas.height / 1080);
     ctx.closePath();
     ctx.fill();
-
     var image = document.getElementById('bluedicey');
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
@@ -45,18 +48,18 @@ function loadBody() {
 
 </script>
 <style type="text/css">
-    html { zoom: 50%; }
-    h1 { font-size: 60px; }
-    canvas { border: 1px solid black; }
-    input[type="color"] { width: 1922px; height: 80px; }
+    h1 { font-size: 5vw; }  /*viewport width percentage*/
+    canvas { width: 100%; border: 1px solid black; }
+    input[type="color"] { width: 100%; height: 5vw; }
+    .parent { width: 100%; height: 100%; }
 </style>
 </head>
 
 <body onload="loadBody();" onkeypress="drawBlueDiceyRandomColor();">
-<div align="center" width="1920">
+<div class="parent" align="center">
 <h1 id="title">Blue Dicey!</h1>
-<input id="colorpicker" type="color" value="#3333fe" /><br/>
-<canvas id="canvas" width="1920" height="1080" onclick="drawBlueDiceyRandomColor();"></canvas>
+<input id="colorpicker" type="color" value="#3333fe" height="200" /><br/>
+<canvas id="canvas" onclick="drawBlueDiceyRandomColor();"></canvas>
 <div style="display:none;">
     <img id="bluedicey" src="blue-dicey-transparent.png"/>
 </div>
