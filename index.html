@@ -14,24 +14,25 @@ function drawBlueDicey(color) {
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
 
-    ctx.canvas.width  = window.innerWidth;
-    ctx.canvas.height = window.innerWidth * 9/16;
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerWidth;
     console.log("Canvas " + canvas.width + " " + canvas.height);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = color;
 
     ctx.beginPath();
-    ctx.moveTo( 590 * canvas.width / 1920,  40 * canvas.height / 1080);
-    ctx.lineTo(1228 * canvas.width / 1920,  40 * canvas.height / 1080);
-    ctx.lineTo(1398 * canvas.width / 1920, 187 * canvas.height / 1080);
-    ctx.lineTo(1398 * canvas.width / 1920, 868 * canvas.height / 1080);
-    ctx.lineTo( 715 * canvas.width / 1920, 868 * canvas.height / 1080);
-    ctx.lineTo( 590 * canvas.width / 1920, 720 * canvas.height / 1080);
+    ctx.moveTo(( 590 - 450) * canvas.width / 1080,  40 * canvas.height / 1080);
+    ctx.lineTo((1228 - 450) * canvas.width / 1080,  40 * canvas.height / 1080);
+    ctx.lineTo((1398 - 450) * canvas.width / 1080, 187 * canvas.height / 1080);
+    ctx.lineTo((1398 - 450) * canvas.width / 1080, 868 * canvas.height / 1080);
+    ctx.lineTo(( 715 - 450) * canvas.width / 1080, 868 * canvas.height / 1080);
+    ctx.lineTo(( 590 - 450) * canvas.width / 1080, 720 * canvas.height / 1080);
     ctx.closePath();
     ctx.fill();
+
     var image = document.getElementById('bluedicey');
-    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(image, -450 * canvas.width / 1080, 0, 1920 * canvas.width / 1080, canvas.width);
 }
 
 function drawBlueDiceyRandomColor() {
