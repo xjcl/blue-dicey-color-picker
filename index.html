@@ -44,6 +44,7 @@ function drawBlueDiceyRandomColor() {
 function loadBody() {
     var colorPicker = document.getElementById('colorpicker');
     drawBlueDicey(colorPicker.value);
+    colorPicker.addEventListener("input",  ev => {drawBlueDicey(ev.target.value);}, false);
     colorPicker.addEventListener("change", ev => {drawBlueDicey(ev.target.value);}, false);
 }
 
@@ -59,7 +60,7 @@ function loadBody() {
 <body onload="loadBody();" onkeypress="drawBlueDiceyRandomColor();">
 <div class="parent" align="center">
 <h1 id="title">Blue Dicey!</h1>
-<input id="colorpicker" type="color" value="#3333fe" height="200" /><br/>
+<input id="colorpicker" type="color" value="#3333fe" /><br/>
 <canvas id="canvas" onclick="drawBlueDiceyRandomColor();"></canvas>
 <div style="display:none;">
     <img id="bluedicey" src="blue-dicey-transparent.png"/>
